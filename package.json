@@ -2,6 +2,7 @@
   "name": "ondas",
   "version": "1.0.0",
   "description": "Free Music App",
+  "author": "Natan",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
