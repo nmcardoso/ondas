@@ -5,6 +5,7 @@
   "author": "Natan",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/nmcardoso/ondas/issues"
   },
-  "homepage": "https://nmcardoso.github.io/ondas"
+  "engines": {
+    "node": "12.x"
+  },
+  "homepage": "https://nmcardoso.github.io/ondas",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
