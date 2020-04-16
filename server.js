@@ -4,7 +4,7 @@ const ffmpeg = require('fluent-ffmpeg')
 const app = express()
 
 app.get('/', (req, res) => {
-  res.send(process.env)
+  res.send('All OK!')
 })
 
 app.get('/download/:id', (req, res) => {
