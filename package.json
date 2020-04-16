@@ -6,6 +6,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "dev": "dotenv -- nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +24,10 @@
   "dependencies": {
     "express": "^4.17.1",
     "fluent-ffmpeg": "^2.1.2",
+    "node-fetch": "^2.6.0",
     "ytdl-core": "^2.1.0"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^3.1.0"
   }
 }
