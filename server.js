@@ -21,6 +21,22 @@ app.get('/search', async (req, res) => {
   console.log(obj)
 })
 
+app.get('/details/:id', async (req, res) => {
+  const url = `https://www.googleapis.com/youtube/v3/videos?id=${req.params.id}&part=contentDetails&key=${process.env.YT_API_KEY}`
+  const r = await fetch(url, {
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  const obj = await r.json()
+  const re = /^PT(\d+)M(\d+)S$/
+  const duration = obj.items[0].contentDetails.duration
+  const m = duration.match(re)
+  const seconds = parseInt(m[1]) * 60 + parseInt(m[2])
+  res.json(seconds)
+  console.log(obj)
+})
+
 app.get('/download/:id', (req, res) => {
   const url = `https://youtube.com/watch?v=${req.params.id}`
   const stream = ytdl(url)
