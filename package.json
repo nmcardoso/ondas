@@ -24,6 +24,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "fluent-ffmpeg": "^2.1.2",
+    "iconv-lite": "^0.5.1",
     "node-fetch": "^2.6.0",
     "ytdl-core": "^2.1.0"
   },
