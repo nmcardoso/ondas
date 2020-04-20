@@ -91,3 +91,49 @@ class Autocomplete {
   }
 }
 
+class Search {
+  constructor(form, input, player) {
+    this.player = player
+    this.setup(form, input)
+  }
+
+  setup(form, input) {
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+
+      this.fetchData(input.value).then(data => {
+        console.log(input.value)
+        console.log(data)
+
+        data.items.forEach(e => {
+          const html = `<div class="card mb-3" style="max-width: 540px; max-height: 100px; cursor: pointer;">
+            <div class="row no-gutters">
+              <div class="col-md-4" style="max-height: 98px; max-width: 150px;">
+                <img src="${e.snippet.thumbnails.default.url}" class="card-img" style="height: 100%;">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title" style="font-size: 18px;">${e.snippet.title}</h5>
+                </div>
+              </div>
+            </div>
+          </div>`
+          const a = document.createElement('a')
+          a.setAttribute('href', `#${e.id.videoId}`)
+          a.innerHTML = html
+          a.addEventListener('click', ev => {
+            const b = $(ev.target).parentsUntil('#search-list', 'a')[0]
+            this.player.setTrack(b.hash.substring(1, b.hash.length))
+            const url = `http://${window.location.host}/download/${b.hash.substring(1, b.hash.length)}`
+          })
+          document.getElementById('search-list').appendChild(a)
+        })
+      })
+    })
+  }
+
+  fetchData(query) {
+    const url = `/search?q=${query}`
+    return fetch(url).then(r => r.json())
+  }
+}
