@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+}
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+  background-color: dodgerblue !important;
+  color: #fff;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+}
+
+#play-btn input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+#play-btn span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url('/static/play.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+#play-btn input:checked + span {
+  background-image: url('/static/pause.svg');
+}
