@@ -3,6 +3,8 @@ const ytdl = require('ytdl-core')
 const ffmpeg = require('fluent-ffmpeg')
 const app = express()
 
+app.use('/static', express.static(__dirname + '/public'))
+
 app.get('/', (req, res) => {
   res.send('All OK!')
 })
