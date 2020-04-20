@@ -164,12 +164,13 @@ class Player {
       }
     })
 
-    this.progressbar.addEventListener('mouseup', e => {
-      console.log(e.target.value)
+    const mouseUpHandler = e => {
       const time = (e.target.value * this.currentAudioDuration) / 100
-      console.log(time)
       this.audio.currentTime = time
-    })
+    }
+
+    this.progressbar.addEventListener('mouseup', mouseUpHandler)
+    this.progressbar.addEventListener('touchend', mouseUpHandler)
   }
 
   setPlaylist(playlist) {
