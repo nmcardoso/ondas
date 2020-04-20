@@ -9,6 +9,18 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html')
 })
 
+app.get('/search', async (req, res) => {
+  const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${req.query.q}&maxResults=30&key=${process.env.YT_API_KEY}`
+  const r = await fetch(url, {
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  const obj = await r.json()
+  res.send(obj)
+  console.log(obj)
+})
+
 app.get('/download/:id', (req, res) => {
   const url = `https://youtube.com/watch?v=${req.params.id}`
   const stream = ytdl(url)
