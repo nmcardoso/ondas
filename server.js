@@ -37,6 +37,19 @@ app.get('/details/:id', async (req, res) => {
   console.log(obj)
 })
 
+app.get('/autocomplete', async (req, res) => {
+  const url = `http://suggestqueries.google.com/complete/search?ds=yt&client=firefox&hl=en-BR&q=${req.query.q}`
+  const r = await fetch(url, {
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  const arr = await r.arrayBuffer()
+  const encoded = iconv.decode(Buffer.from(arr), 'iso-8859-1')
+  res.header("Content-Type", "application/json; charset=utf-8");
+  res.send(encoded)
+})
+
 app.get('/download/:id', (req, res) => {
   const url = `https://youtube.com/watch?v=${req.params.id}`
   const stream = ytdl(url)
