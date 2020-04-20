@@ -68,8 +68,9 @@ app.get('/download/:id', (req, res) => {
   })
   proc.on('end', (stdout, stderr) => {
     console.log('Transcoding succeeded!')
+    res.end()
   })
-  proc.pipe(res, { end: true })
+  proc.pipe(res, { end: false })
 })
 
 app.listen(process.env.PORT || 3000, () => {
