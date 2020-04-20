@@ -137,3 +137,59 @@ class Search {
     return fetch(url).then(r => r.json())
   }
 }
+
+class Player {
+  constructor() {
+    this.playlist = []
+    this.currentKey = 0
+    this.currentAudioDuration = 0
+    this.keysArray = []
+    this.audio = new Audio()
+    this.progressbar = document.getElementById('progress')
+    this.setupUI()
+  }
+
+  setupUI() {
+    $('#play-btn :checkbox').change(e => {
+      if (e.target.checked) {
+        this.audio.play()
+      } else {
+        this.audio.pause()
+      }
+    })
+
+    this.audio.addEventListener('timeupdate', e => {
+      if (this.currentAudioDuration > 0) {
+        this.progressbar.value = 100 * (e.target.currentTime / this.currentAudioDuration)
+      }
+    })
+
+    this.progressbar.addEventListener('mouseup', e => {
+      console.log(e.target.value)
+      const time = (e.target.value * this.currentAudioDuration) / 100
+      console.log(time)
+      this.audio.currentTime = time
+    })
+  }
+
+  setPlaylist(playlist) {
+    this.playlist = playlist
+  }
+
+  next() {
+
+  }
+
+  prev() {
+
+  }
+
+  setTrack(id) {
+    fetch(`http://${window.location.host}/details/${id}`).then(r => r.json()).then(data => this.currentAudioDuration = data)
+    this.audio.src = `http://${window.location.host}/download/${id}`
+    this.audio.load()
+    this.audio.play()
+    $('#play-btn :checkbox').prop('checked', true)
+  }
+}
+
