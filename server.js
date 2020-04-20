@@ -6,7 +6,7 @@ const app = express()
 app.use('/static', express.static(__dirname + '/public'))
 
 app.get('/', (req, res) => {
-  res.send('All OK!')
+  res.sendFile(__dirname + '/public/index.html')
 })
 
 app.get('/download/:id', (req, res) => {
