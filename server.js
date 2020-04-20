@@ -2,6 +2,7 @@ const express = require('express')
 const ytdl = require('ytdl-core')
 const ffmpeg = require('fluent-ffmpeg')
 const fetch = require('node-fetch')
+const iconv = require('iconv-lite')
 const app = express()
 
 app.use('/static', express.static(__dirname + '/public'))
