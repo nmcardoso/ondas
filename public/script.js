@@ -193,3 +193,8 @@ class Player {
   }
 }
 
+document.addEventListener('DOMContentLoaded', e => {
+  const a = new Autocomplete(document.getElementById('search-input'))
+  const p = new Player()
+  const s = new Search(document.getElementById('search-form'), document.getElementById('search-input'), p)
+})
