@@ -104,6 +104,7 @@ class Search {
       this.fetchData(input.value).then(data => {
         console.log(input.value)
         console.log(data)
+        this.clear()
 
         data.items.forEach(e => {
           const html = `<div class="card mb-3" style="max-width: 540px; max-height: 100px; cursor: pointer;">
@@ -130,6 +131,10 @@ class Search {
         })
       })
     })
+  }
+
+  clear() {
+    document.getElementById('search-list').innerHTML = ''
   }
 
   fetchData(query) {
