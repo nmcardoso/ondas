@@ -185,7 +185,7 @@ class Player {
   }
 
   setTrack(id) {
-    fetch(`http://${window.location.host}/details/${id}`).then(r => r.json()).then(data => this.currentAudioDuration = data)
+    fetch(`/details/${id}`).then(r => r.json()).then(data => this.currentAudioDuration = data)
     this.audio.src = `http://${window.location.host}/download/${id}`
     this.audio.load()
     this.audio.play()
