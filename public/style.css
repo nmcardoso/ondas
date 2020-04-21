@@ -7,6 +7,18 @@
   display: inline-block;
 }
 
+#search-form button {
+  background-image: url('/static/search.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60% 60%;
+  padding: 0 21px;
+}
+
+#search-form button:hover {
+  background-image: url('/static/search-hover.svg');
+}
+
 .autocomplete-items {
   position: absolute;
   border: 1px solid #d4d4d4;
