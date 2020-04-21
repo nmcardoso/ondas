@@ -109,10 +109,10 @@ class Search {
         data.items.forEach(e => {
           const html = `<div class="card mb-3" style="max-width: 540px; max-height: 100px; cursor: pointer;">
             <div class="row no-gutters">
-              <div class="col-md-4" style="max-height: 98px; max-width: 150px;">
+              <div class="col-4" style="max-height: 98px; max-width: 150px;">
                 <img src="${e.snippet.thumbnails.default.url}" class="card-img" style="height: 100%;">
               </div>
-              <div class="col-md-8">
+              <div class="col-8">
                 <div class="card-body">
                   <h5 class="card-title" style="font-size: 18px;">${e.snippet.title}</h5>
                 </div>
