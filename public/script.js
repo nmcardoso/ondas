@@ -4,7 +4,6 @@ class Autocomplete {
     this.currentFocus = -1
     this.suggestions = ['a', 'b']
     this.setup(input)
-    // test
   }
 
   setup(input) {
