@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/search', async (req, res) => {
-  const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${req.query.q}&maxResults=30&key=${process.env.YT_API_KEY}`
+  const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${req.query.q}&maxResults=30&key=${process.env.YT_API_KEY}&quotaUser=root`
   const r = await fetch(url, {
     headers: {
       'Accept': 'application/json'
@@ -24,7 +24,7 @@ app.get('/search', async (req, res) => {
 })
 
 app.get('/details/:id', async (req, res) => {
-  const url = `https://www.googleapis.com/youtube/v3/videos?id=${req.params.id}&part=contentDetails&key=${process.env.YT_API_KEY}`
+  const url = `https://www.googleapis.com/youtube/v3/videos?id=${req.params.id}&part=contentDetails&key=${process.env.YT_API_KEY}&quotaUser=root`
   const r = await fetch(url, {
     headers: {
       'Accept': 'application/json'
