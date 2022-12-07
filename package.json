@@ -22,7 +22,7 @@
   },
   "homepage": "https://nmcardoso.github.io/ondas",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "fluent-ffmpeg": "^2.1.2",
     "iconv-lite": "^0.5.1",
     "node-fetch": "^2.6.7",
